@@ -1,0 +1,21 @@
+
+<h1><%= @question.title %></h1>
+
+<% if @question.resolved == true %>
+  <div id="resolved">
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    This Question has been marked as answerd.
+  </div>
+<% end %>
+
+<p><%= @question.body %></p>
+
+<%= link_to "Edit", edit_question_path(@question), class: 'btn btn-primary' %>
+
+
+
+
+  
+  
+  

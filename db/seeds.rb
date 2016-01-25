@@ -18,6 +18,17 @@ posts = Post.all
   )
 end
 
+#Create Questions
+20.times do
+  random = Random.new.rand(0..1)
+  Question.create!(
+    title: Faker::Lorem.sentence,
+    body:  Faker::Lorem.paragraph,
+    resolved: random == 1
+  )
+end
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Question.count} questions created"
