@@ -32,12 +32,35 @@ posts = Post.all
   )
 end
 
-user = User.first
-user.skip_reconfirmation!
-user.update_attributes!(
-  email: 'test@test.test',
-  password: 'testtest'
+# Creat an admin user
+admin = User.new(
+  name:       'Admin User', 
+  email:      'admin@example.com',
+  password:   'helloworld',
+  role:       'Admin'
 )
+admin.skip_confirmation!
+admin.save!
+
+# Create a moderator
+
+moderator = User.new(
+  name:       'Moderator User',
+  email:      'moderator@example.com',
+  password:   'helloworld',
+  role:       'moderator'
+)
+moderator.skip_confirmation!
+moderator.save!
+
+# Create a member
+member = User.new(
+  name:       'Memeber User', 
+  email:      'member@exmaple.com',
+  password:   'helloworld'
+)
+member.skip_confirmation!
+member.save!
 
 puts "Seed finished"
 puts "#{User.count} users created"
