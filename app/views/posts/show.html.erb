@@ -17,4 +17,6 @@
 </div>
 <h2>Comments</h2>
 <%= render @comments %>
-<%= render partial: "/comments/form", locals: {topic: @topic, post: @post} %>
+<% if policy(@post).create?%>
+  <%= render partial: "/comments/form", locals: {topic: @topic, post: @post} %>
+<% end %>
