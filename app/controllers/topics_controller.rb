@@ -50,7 +50,7 @@ class TopicsController < ApplicationController
       flash[:notice] = "\"#{@topic.name}\"topic was deleted"
       redirect_to topics_path
     else
-      flas[:errr] = "Error deleting the topic. Please try again."
+      flas[:error] = "Error deleting the topic. Please try again."
       render :show
     end
   end
