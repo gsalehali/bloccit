@@ -10,7 +10,7 @@ describe Comment do
       @post = associated_post
       @user = authenticated_user(email_favorites: true)
       @other_user = authenticated_user
-      @comment = Comnnet.new(body: 'My comment is really greate', post: @post, user: @other_user)
+      @comment = Comment.new(body: 'My comment is really great', post: @post, user: @other_user)
     end
 
     it "sends an email to users who have favorited the post" do
@@ -28,8 +28,8 @@ describe Comment do
     end
 
     it "does not send emails to users who haven't" do
-      expect ( FavoriteMailer )
-        .not_to_receive(:new_comment)
+      expect( FavoriteMailer )
+        .not_to receive(:new_comment)
 
       @comment.save
     end
