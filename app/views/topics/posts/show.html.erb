@@ -30,7 +30,7 @@
   </div>
 </div>
 <h2>Comments</h2>
-<%= render @comments %>
+<%= render partial: 'comments/comment', collection: @comments %>
 <% if policy(@comment).new?%>
   <%= render partial: "/comments/form", locals: {topic: @topic, post: @post} %>
 <% end %>
