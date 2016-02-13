@@ -8,11 +8,9 @@ class CommentsController < ApplicationController
     authorize @comment
     if @comment.save
       flash[:notice] = "Comment was saved"
-      redirect_to topic_post_path(@post.topic, @post)
     else
       flash[:error] = "There was an error saving the comment. Please try again."
-      redirect_to topic_post_path(@post.topic, @post)
-    end
+    end   
   end
 
   def destroy
